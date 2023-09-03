@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d0f03131-c4fe-47de-8b9e-d5a62a01a9c2" name="192.168.0.110">
+        <fileTransfer rootFolder="/var/www/gotest/ccgo" accessType="SFTP" host="192.168.0.110" port="22" sshConfigId="cf66db2c-176b-49fb-8d82-425049221c66" sshConfig="root@192.168.0.110:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

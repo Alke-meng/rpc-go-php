@@ -1,0 +1,45 @@
+
+name: "cc-go"
+mode: "dev"
+port: 8081
+version: 1.2
+start_time: "2020-07-01"
+machine_id: 1
+report_file_path: "/var/www/report"
+tmp_file_path: "/var/www/tmp"
+monitor_interval: 5000
+monitor_local_port: 9089
+monitor_remote_addr: "192.168.0.110"
+
+log:
+  level: "debug"
+  filename: "cc-go.log"
+  max_size: 200
+  max_page: 30
+  max_backups: 7
+
+mysql:
+  host: "127.0.0.1"
+  port: 3306
+  user: "root"
+  password: "123456"
+  dbname: "test"
+  max_open_conns: 20
+  max_idle_conns: 14
+
+redis:
+  host: "127.0.0.1"
+  port: 6379
+  password: ""
+  db: 0
+  poolSize: 10
+
+redisQueue:
+  addr: "127.0.0.1:6379"
+  password: ""
+  db: 1
+  poolSize: 10
+
+asynq:
+  concurrency: 6
+

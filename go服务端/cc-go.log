@@ -1,0 +1,1 @@
+{"level":"INFO","time":"2023-01-07T10:09:02.562+0800","caller":"cc-go/main.go:39","msg":"mysql init fail:dial tcp 127.0.0.1:3306: connectex: No connection could be made because the target machine actively refused it."}
