@@ -1,5 +1,5 @@
 # rpc-go-php
-rpc 导入数据和删除; go语言作为服务端，php作为客户端，简单的rpc调用（主要是go语言的学习，切勿在生产中使用）
+rpc 导入数据和删除， go语言作为服务端，php作为客户端，简单的rpc调用（主要是go语言的学习，切勿在生产环境中使用）
 
 **特别注意：配置文件中的数据库相关信息要修改**
 
@@ -7,7 +7,7 @@ rpc 导入数据和删除; go语言作为服务端，php作为客户端，简单
 > 
 `vi conf/config.yaml`
 
-    report_file_path: "/var/www/report"    // import 导入数据时，生成报告的地址
+    report_file_path: "/var/www/report"    // import 导入数据时，生成导入报告的地址
 
     **特别注意：/var/www/tmp 用户组权限是 mysql:mysql **
     tmp_file_path: "/var/www/tmp"          // delete 操作中需要回收时，先查询数据写入txt保留的地址
@@ -45,30 +45,37 @@ cd go项目所在文件夹
 
 启动：`go run main.go`
 
-开发环境可使用air，具体如何使用请自行查询
+开发环境可使用air，具体如何使用请查看 https://github.com/cosmtrek/air
 
 > php 调用
 
-根据 $sync 这个参数决定 php 调用方是否同步阻塞
+    根据 $sync 这个参数决定 php 调用方是否同步阻塞
+    
+    true =》同步请求等rpc返回
+    
+    false =》直接结束
 
-true =》同步请求等rpc返回
+> 导入调用(请根据实际情况修改php文件中的参数)
 
-false =》直接结束
+    php import.php
 
-调用：php import.php
+
+> 删除调用(请根据实际情况修改php文件中的参数)
+
+    php delete.php
 
 
 > 结果演示
 
-![image](https://github.com/Alke-meng/rpc-go-help/blob/main/images/1.jpg)
+![image](https://github.com/Alke-meng/rpc-go-php/blob/main/images/1.jpg)
 
-![image](https://github.com/Alke-meng/rpc-go-help/blob/main/images/2.jpg)
+![image](https://github.com/Alke-meng/rpc-go-php/blob/main/images/2.jpg)
 
-![image](https://github.com/Alke-meng/rpc-go-help/blob/main/images/3.jpg)
+![image](https://github.com/Alke-meng/rpc-go-php/blob/main/images/3.jpg)
 
-![image](https://github.com/Alke-meng/rpc-go-help/blob/main/images/4.jpg)
+![image](https://github.com/Alke-meng/rpc-go-php/blob/main/images/4.jpg)
 
-![image](https://github.com/Alke-meng/rpc-go-help/blob/main/images/5.jpg)
+![image](https://github.com/Alke-meng/rpc-go-php/blob/main/images/5.jpg)
 
 
 > 简单的性能监控：
@@ -84,18 +91,20 @@ false =》直接结束
 > 启动： ./asynqmon -port 9087  --redis-url=redis://:@localhost:6379/1
 > http://192.168.0.110:9087/
 >
-> 192.168.0.110 是自己服务器地址 9087 启动地址
+> 192.168.0.110 是自己服务器地址 9087 端口地址
 >
 > 详细内容可查看 https://github.com/hibiken/asynq
-> ，asynqmon 二进制文件可自行下载使用
+> asynqmon 二进制文件可自行下载使用
 >
 
-### 该项目只是学习使用golang,rpc简单利用,实际生成使用请参考以下方式
+### 该项目只是学习使用golang语言的rpc简单利用,实际生产环境使用请参考以下方式
 
-> golang rpc 使用建议选择专业的rpc框架
+> golang rpc 使用建议选择专业的rpc框架，如 go-zero\go-kit\go-micro等其他框架
 
 > php 与 golang 的通信可参考
+>
+> (1) RoadRunner 是用 Golang 编写的 PHP 应用程序的基础架构级框架
 > https://github.com/roadrunner-server/roadrunner
 > 
-> 或者采用swoole,hyperf 框架中 goTask
+> (2) swoole,hyperf 框架中 goTask
 > https://github.com/hyperf/gotask
