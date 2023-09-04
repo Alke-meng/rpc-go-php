@@ -71,7 +71,7 @@ cd go项目所在文件夹
 
 ![image](https://github.com/Alke-meng/rpc-go-php/blob/main/images/2.jpg)
 
-![image](https://github.com/Alke-meng/rpc-go-php/blob/main/images/3.jpg)
+![image](https://github.com/Alke-meng/rpc-go-php/blob/main/images/3.png)
 
 ![image](https://github.com/Alke-meng/rpc-go-php/blob/main/images/4.jpg)
 
